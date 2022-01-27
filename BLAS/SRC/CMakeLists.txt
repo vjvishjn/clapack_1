@@ -136,8 +136,10 @@ if(BLAS_COMPLEX16)
 endif()
   
   
-add_library(blas ${ALLOBJ})
+add_library(blas STATIC ${ALLOBJ})
 if(UNIX)
   target_link_libraries(blas m)
 endif()
 target_link_libraries(blas f2c)
+
+install_library(blas)
